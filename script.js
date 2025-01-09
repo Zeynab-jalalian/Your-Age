@@ -9,6 +9,8 @@ button.addEventListener('click',function(){
    let birthMonth=birthDate.getMonth();
    let birthDay=birthDate.getDay();
    let age=TodayYear-birthYear;
-   console.log(age);
-   
+  
+   if(birthMonth>TodayDate.getMonth() || (birthMonth===TodayDate.getMonth() && TodayDate.getDate()<birthDay) ){
+    age--;
+   }
 })

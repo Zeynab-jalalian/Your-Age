@@ -8,7 +8,7 @@ button.addEventListener('click',function(){
    let birthDate=new Date(input.value);
    let birthYear=birthDate.getFullYear();
    let birthMonth=birthDate.getMonth();
-   let birthDay=birthDate.getDay();
+   let birthDay=birthDate.getDate();
    let age=TodayYear-birthYear;
   
    if(birthMonth>TodayDate.getMonth() || (birthMonth===TodayDate.getMonth() && TodayDate.getDate()<birthDay) ){
@@ -21,5 +21,7 @@ button.addEventListener('click',function(){
    if(isNaN(birthDate.getTime())){
     result.innerHTML='لطفا یک تاریخ معتبر وارد کنید';
     return;
+   }else{
+    result.innerHTML=`سن شما: ${age} سال است`;
    }
 })

@@ -9,8 +9,7 @@ button.addEventListener('click',function(){
    let birthYear=birthDate.getFullYear();
    let birthMonth=birthDate.getMonth();
    let birthDay=birthDate.getDate();
-   let age=TodayYear-birthYear;
-  
+   
    if(birthMonth>TodayDate.getMonth() || (birthMonth===TodayDate.getMonth() && TodayDate.getDate()<birthDay) ){
     age--;
    }
@@ -24,4 +23,8 @@ button.addEventListener('click',function(){
    }else{
     result.innerHTML=`سن شما: ${age} سال است`;
    }
+   let ageYear=TodayDate.getFullYear()-birthYear;
+   let ageMonth=TodayDate.getMonth()-birthMonth;
+   let ageDay=TodayDate.getDate()-birthDay;
+   
 })

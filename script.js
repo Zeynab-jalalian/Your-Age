@@ -10,9 +10,7 @@ button.addEventListener('click',function(){
    let birthMonth=birthDate.getMonth();
    let birthDay=birthDate.getDate();
    
-   if(birthMonth>TodayDate.getMonth() || (birthMonth===TodayDate.getMonth() && TodayDate.getDate()<birthDay) ){
-    age--;
-   }
+  
    if(input.value===''){
     result.innerHTML='لطفا تاریخ تولد خود را وارد کنید'
     return;
@@ -20,11 +18,23 @@ button.addEventListener('click',function(){
    if(isNaN(birthDate.getTime())){
     result.innerHTML='لطفا یک تاریخ معتبر وارد کنید';
     return;
-   }else{
-    result.innerHTML=`سن شما: ${age} سال است`;
    }
    let ageYear=TodayDate.getFullYear()-birthYear;
    let ageMonth=TodayDate.getMonth()-birthMonth;
    let ageDay=TodayDate.getDate()-birthDay;
-   
+   if(ageMonth<0){
+    ageYear--;
+    ageMonth+=12;
+   }
+   if (ageDay < 0) {
+    ageMonth--;  
+    let lastMonth = new Date(TodayDate.getFullYear(), TodayDate.getMonth(), 0);  
+    ageDay += lastMonth.getDate();  
+    if (ageMonth < 0) {
+        ageYear--;  
+        ageMonth += 12; 
+    }
+}
+
+result.innerHTML =` سن شما: ${ageYear} سال و ${ageMonth} ماه و ${ageDay} روز است`;
 })
